@@ -82,13 +82,13 @@ const CreatePost = () => {
     <section className="max-w-7xl mx-auto">
       <div>
         <h1 className="font-extrabold text-[#222328] text-[32px]">Create</h1>
-        <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">
+        <p className="mt-2 text-[#666e75] text-[14px] max-w-[700px]">
           Generate an imaginative image through DALL-E AI and share it with the
           community
         </p>
       </div>
 
-      <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
+      <form className="mt-10 max-w-3xl" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-5">
           <FormField
             labelName="Your Name"
@@ -140,18 +140,17 @@ const CreatePost = () => {
             className=" text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center">
             {generatingImg ? "Generating..." : "Generate"}
           </button>
-        </div>
-
-        <div className="mt-10">
-          <p className="mt-2 text-[#666e75] text-[14px]">
-            ** Once you have created the image you want, you can share it with
-            others in the community **
-          </p>
           <button
             type="submit"
-            className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+            className="text-white bg-[#0DBCDB] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center hover:bg-[#0B8A9F]">
             {loading ? "Sharing..." : "Share with the Community"}
           </button>
+        </div>
+
+        <div className="mt-7">
+          <p className="mt-2 text-[#666e75] text-[14px]">
+            ** Share your newly generated image with the community! **
+          </p>
         </div>
       </form>
     </section>
