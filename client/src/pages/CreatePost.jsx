@@ -29,15 +29,18 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGeneratingImg(true);
-        const response = await fetch("https://openai-dalle-clone.onrender.com/api/v1/dalle", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            prompt: form.prompt,
-          }),
-        });
+        const response = await fetch(
+          "https://openai-dalle-clone.onrender.com/api/v1/dalle",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              prompt: form.prompt,
+            }),
+          }
+        );
 
         const data = await response.json();
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
@@ -57,13 +60,16 @@ const CreatePost = () => {
     if (form.prompt && form.photo) {
       setLoading(true);
       try {
-        const response = await fetch("https://openai-dalle-clone.onrender.com/api/v1/post", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ ...form }),
-        });
+        const response = await fetch(
+          "https://openai-dalle-clone.onrender.com/api/v1/post",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ ...form }),
+          }
+        );
 
         await response.json();
         alert("Success");
@@ -137,7 +143,7 @@ const CreatePost = () => {
           <button
             type="button"
             onClick={generateImage}
-            className=" text-white bg-green-700 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+            className=" text-white bg-green-600 font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center hover:bg-green-800">
             {generatingImg ? "Generating..." : "Generate"}
           </button>
           <button
